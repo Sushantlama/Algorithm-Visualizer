@@ -1,7 +1,7 @@
 from snake import Snake
 from tkinter import *
 
-root = Tk(className="python")
+root = Tk(className="snake never dies")
 root.resizable(False,False)
 snake = Snake(root)
 root.bind("<KeyPress-Left>", lambda e: snake.left(e))
