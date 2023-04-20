@@ -18,9 +18,9 @@ class astar:
         openset.append(self.start_node)
         while(len(openset)!=0):
             current_node = self.get_min(openset)
-            if current_node != self.start_node and current_node != self.end_node:
-                current_node.rectangle = self.canvas.create_rectangle(current_node.x * self.size , current_node.y * self.size 
-                                            ,current_node.x * self.size + self.size , current_node.y * self.size + self.size,fill="brown")
+            # if current_node != self.start_node and current_node != self.end_node:
+            #     current_node.rectangle = self.canvas.create_rectangle(current_node.x * self.size , current_node.y * self.size 
+            #                                 ,current_node.x * self.size + self.size , current_node.y * self.size + self.size,fill="brown")
             if current_node == self.end_node :
                 self.path(current_node)
                 return 
@@ -40,7 +40,7 @@ class astar:
                     if neighbour not in openset:
                         openset.append(neighbour)
             self.canvas.update()
-            time.sleep(0.1)
+            # time.sleep(0.1)
         print("empty")
 
     def neighbours(self,node):
@@ -85,12 +85,12 @@ class astar:
         Result.append(current_node)
         self.canvas.delete(current_node.rectangle)
         current_node.rectangle = self.canvas.create_rectangle(current_node.x*self.size,current_node.y*self.size,
-                                        current_node.x*self.size+self.size,current_node.y*self.size+self.size,fill="blue")
+                                        current_node.x*self.size+self.size,current_node.y*self.size+self.size,fill="light green")
         while current_node.prevNode != None:
             current_node = current_node.prevNode
             self.canvas.delete(current_node.rectangle)
             current_node.rectangle=self.canvas.create_rectangle(current_node.x*self.size,current_node.y*self.size,
-                                            current_node.x*self.size+self.size,current_node.y*self.size+self.size,fill="blue")
+                                            current_node.x*self.size+self.size,current_node.y*self.size+self.size,fill="light green")
             self.canvas.update()
             time.sleep(0.1)
             Result.append(current_node)
